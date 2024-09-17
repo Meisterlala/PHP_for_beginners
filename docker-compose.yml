@@ -3,18 +3,28 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ../..:/workspaces:cached
-    command: sleep infinity
+    develop:
+      watch:
+        - action: sync
+          path: ./www
+          target: /var/www/html
     depends_on:
       - db
+    volumes:
+      - ./www:/var/www/html # Mount the local directory to the container
+    ports:
+      - "8080:80"
 
   db:
     image: postgres:latest
     environment:
-      POSTGRES_DB: test_database
-      POSTGRES_USER: db_user
-      POSTGRES_PASSWORD: db_password
+      POSTGRES_DB: db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    expose:
+      - "5432"
+    volumes:
+      - database:/var/lib/postgresql/data
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -24,7 +34,7 @@ services:
       # Password for accessing pgAdmin 4
       PGADMIN_DEFAULT_PASSWORD: adminpassword
     ports:
-      - "5050:5050"
+      - "8081:80"
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     depends_on:
@@ -33,3 +43,6 @@ services:
 
 volumes:
   pgadmin_data:
+  database:
+
+
