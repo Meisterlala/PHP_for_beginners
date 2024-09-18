@@ -23,6 +23,7 @@ function filter(array $items): array
         }
     }
     return $filtered;
+    
 }
 
 function filterGeneric(array $items, callable $filter): array
