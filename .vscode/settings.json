@@ -1,4 +1,5 @@
 {
-    "livePreview.serverRoot": "www",
-    "liveServer.settings.NoBrowser": true
+    "liveServer.settings.NoBrowser": true,
+    "liveServer.settings.root": "www/",
+    "liveServer.settings.multiRootWorkspaceName": "www"
 }
