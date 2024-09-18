@@ -33,7 +33,32 @@
             "date" => "today"
         ];
 
+        function filter(array $items): array
+        {
+            $filtered = [];
+
+            foreach ($items as $item) {
+                if (str_contains($item, "1")) {
+                    $filtered[] = $item;
+                }
+            }
+            return $filtered;
+        }
+
+        function filterGeneric(array $items, callable $filter): array
+        {
+            $filtered = [];
+
+            foreach ($items as $item) {
+                if ($filter($item)) {
+                    $filtered[] = $item;
+                }
+            }
+            return $filtered;
+        }
         ?>
+
+
         <ul>
             <?php foreach ($books as $book) {
                 echo "<li>{$book}</li>";
@@ -46,13 +71,28 @@
                 <li><?= $book ?></li>
             <?php endforeach ?>
         </ul>
-        
+
 
         And we can display assosiative Arrays like this: <br>
-        <?= $assosiative["name"] ?> <br>
-        <?= $assosiative["author"] ?> <br>
-        <?= $assosiative["date"] ?> <br>
-        
+        <ul>
+            <li> <?= $assosiative["name"] ?> </li>
+            <li> <?= $assosiative["author"] ?> </li>
+            <li> <?= $assosiative["date"] ?> </li>
+        </ul>
+
+        And here are all Books that have a 1 in there title: <br>
+        <ul>
+            <?php foreach (filter($books) as $book): ?>
+                <li><?= $book ?></li>
+            <?php endforeach ?>
+        </ul>
+
+        All books that have and e in the title:
+        <ul>
+            <?php foreach (filterGeneric($books, fn($i) => str_contains($i, "e")) as $book): ?>
+                <li><?= $book ?></li>
+            <?php endforeach ?>
+        </ul>
     </div>
 </body>
 
