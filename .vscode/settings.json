@@ -1,3 +1,4 @@
 {
     "livePreview.serverRoot": "www",
+    "liveServer.settings.NoBrowser": true
 }
