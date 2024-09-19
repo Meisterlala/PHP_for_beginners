@@ -1,9 +1,11 @@
 # PHP for Beginners
 
 As part of my journey following the Laracasts PHP Path, I've created several projects that demonstrate my growing expertise in PHP, Webdesign, and database management.
-Since this is a php website, it needs php to be running. But [it would look something like this](https://meisterlala.github.io/PHP_for_beginners/)
 
-## How to view the website
+#### Backup link (not running php): [https://php-projects.netlify.app/](https://php-projects.netlify.app)
+
+
+## How to run the website
 
 ### With Github Codespaces
 
