@@ -1,0 +1,1 @@
+COPY public.posts FROM 'posts.csv';
