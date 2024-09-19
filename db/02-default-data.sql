@@ -1,1 +1,0 @@
-COPY public.posts FROM '/docker-entrypoint-initdb.d/posts.csv' DELIMITER ',';

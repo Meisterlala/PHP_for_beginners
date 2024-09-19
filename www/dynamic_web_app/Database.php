@@ -12,6 +12,7 @@ class Database
         $this->pdo = new PDO($dsn, options: [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
+        $this->pdo->exec("SET search_path TO dynamic_web_app");
     }
 
 
