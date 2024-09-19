@@ -5,22 +5,24 @@ class Database
 
     private $pdo;
 
-    function __construct()
+    function __construct(array $config)
     {
         // Connect to Database
-        $dsn = "pgsql:host=db;port=5432;dbname=db;user=user;password=password";
-        $this->pdo = new PDO($dsn);
+        $dsn = "pgsql:" . http_build_query($config, '', ';');
+        $this->pdo = new PDO($dsn, options: [
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]);
     }
 
 
     function fetchAll(string $query): array
     {
-        return $this->statement($query)->fetchAll(PDO::FETCH_ASSOC);
+        return $this->statement($query)->fetchAll();
     }
 
     function fetch(string $query)
     {
-        return $this->statement($query)->fetch(PDO::FETCH_ASSOC);
+        return $this->statement($query)->fetch();
     }
 
     function statement(string $query)

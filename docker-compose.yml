@@ -8,6 +8,12 @@ services:
         - action: sync
           path: ./www
           target: /var/www/html
+    environment:
+      DATABASE_host: db
+      DATABASE_port: 5432
+      DATABASE_dbname: db
+      DATABASE_user: user
+      DATABASE_password: password
     depends_on:
       - db
     volumes:
