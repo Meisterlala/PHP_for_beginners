@@ -1,0 +1,9 @@
+services:
+  app:
+    env_file: ".env"
+    ports: !reset []
+    expose:
+      - 80
+  db:
+    env_file: ".env"
+  pgadmin: !reset ""
