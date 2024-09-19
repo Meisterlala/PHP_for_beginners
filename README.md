@@ -1,6 +1,6 @@
 # PHP for Beginners
 
-As part of my journey following the Laracasts PHP Path, I've created several projects that demonstrate my growing expertise in PHP, Webdesign, and database management.
+As part of my journey following the [Laracasts PHP Path](https://laracasts.com/series), I've created several projects that demonstrate my growing expertise in PHP, Webdesign, and database management.
 
 #### Backup link (not running php): [https://php-projects.netlify.app/](https://php-projects.netlify.app)
 
