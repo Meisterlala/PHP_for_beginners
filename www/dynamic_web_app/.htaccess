@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /dynamic_web_app/
+RewriteRule ^index\\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . /dynamic_web_app/index.php [L]

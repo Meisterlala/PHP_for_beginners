@@ -40,6 +40,12 @@ services:
     depends_on:
       - db
     restart: always
+  # mathesar:
+  #   image: mathesar/mathesar-prod:latest
+  #   depends_on:
+  #     - db
+  #   ports:
+  #     - 8000
 
 volumes:
   pgadmin_data:
