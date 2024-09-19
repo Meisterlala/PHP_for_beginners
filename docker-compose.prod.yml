@@ -4,6 +4,7 @@ services:
     ports: !reset []
     expose:
       - 80
+    volumes: !reset ""
   db:
     env_file: ".env"
   pgadmin: !reset ""
