@@ -3,14 +3,23 @@ $books = [
     "1984",
     "Brave New World",
     "Fahrenheit 451",
-    "The Great Gatsby"
-
+    "The Great Gatsby",
+    "To Kill a Mockingbird",
+    "Moby Dick",
+    "The Catcher in the Rye",
+    "Pride and Prejudice",
+    "The Lord of the Rings",
+    "The Hobbit",
+    "War and Peace",
+    "The Odyssey",
+    "Crime and Punishment",
+    "The Brothers Karamazov"
 ];
 
 $assosiative = [
-    "name" => "Bookname",
-    "author" => "Me",
-    "date" => "today"
+    "name" => "Brave New World",
+    "author" => "Aldous Huxley",
+    "date" => "1932"
 ];
 
 function filter(array $items): array
@@ -23,7 +32,7 @@ function filter(array $items): array
         }
     }
     return $filtered;
-    
+
 }
 
 function filterGeneric(array $items, callable $filter): array

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Demo</title>
+    <title>Recommended Books</title>
     <style>
         body {
             display: grid;
