@@ -7,3 +7,8 @@ services:
   db:
     env_file: ".env"
   pgadmin: !reset ""
+
+networks:
+  default:
+    name: proxy_host
+    external: true
