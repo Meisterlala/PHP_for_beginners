@@ -7,8 +7,11 @@
     <div class="row">
         <div class="card-body p-4 fs-4 ">
 
-            <textarea name="body" class="form-control bg-body-secondary mt-3 shadow from-control-lg" rows="7"></textarea>
+            <textarea name="body" class="form-control bg-body-secondary mt-3 shadow from-control-lg" rows="7"><?= $_POST['body'] ?? '' ?></textarea>
 
+            <?php if (isset($errors['body'])): ?>
+                <div class="alert alert-danger mt-3 fs-5"><?= $errors['body'] ?></div>
+            <?php endif; ?>
         </div>
     </div>
     <div class="d-flex justify-content-center gap-4">
