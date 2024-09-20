@@ -11,15 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         abort(Response::BAD_REQUEST);
     }
 
-    
 
-    if (empty($_POST['body'])) {
-        $errors['body'] = "Please enter some text for the note.";
-    } else if (strlen($_POST['body'])  > 1000) {
-        $errors['body'] = "Note is too long. Maximum 1000 characters.";
-    } else
+    if (!Validator::String($_POST['body'], 1, 1000)) {
+        $errors['body'] = "A note must be between 1 and 1000 characters long.";
+    }
 
-   
 
     if (empty($errors)) {
         $db->query(
