@@ -5,12 +5,8 @@ use Core\Database;
 
 // require parameter
 if (!array_key_exists('id', $_GET)) {
-    abort(Response::BAD_REQUEST);
+    Core\abort(Response::BAD_REQUEST);
 }
-
-
-$title = "Note: {$_GET['id']}";
-
 
 // Fetch and check that it exists
 $note = $db->query('SELECT * FROM notes WHERE id = :id', ...[
@@ -21,4 +17,17 @@ $note = $db->query('SELECT * FROM notes WHERE id = :id', ...[
 // Note from another user
 Core\authorize($note['user_id'] === $currentUserId);
 
-require "views/note.view.php";
+// Delete note if we are requested to
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $db->query('DELETE FROM notes WHERE id = :id', ...[
+        'id' => $_POST['id'],
+    ]);
+    header("Location: /notes");
+    die();
+
+} else {
+    // Fetch note
+    $title = "Note: {$_GET['id']}";
+    require "views/note.view.php";
+}
+

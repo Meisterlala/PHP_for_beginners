@@ -9,9 +9,13 @@
             <?= htmlspecialchars($note['body']) ?>
         </div>
     </div>
+    <div class="d-flex justify-content-center gap-4">
+        <form method="POST">
+            <input type="hidden" name="id" value="<?= htmlspecialchars($note['id']) ?>">
+            <button class="btn btn-danger mt-3 px-3" type="submit">Delete</button>
+        </form>
+    </div>
 </div>
-
-
 
 
 <?php require "partials/bootstrap_footer.php" ?>
