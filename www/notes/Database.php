@@ -4,6 +4,8 @@ class Database
 {
 
     private $pdo;
+    private $statement;
+
 
     function __construct(array $config)
     {
@@ -16,10 +18,28 @@ class Database
     }
 
 
-    function query(string $query, mixed...$parameters)
+    function query(string $query, mixed ...$parameters)
     {
-        $statement = $this->pdo->prepare($query);
-        $statement->execute($parameters);
-        return $statement;
+        $this->statement = $this->pdo->prepare($query);
+        $this->statement->execute($parameters);
+        return $this;
+    }
+
+    function fetch()
+    {
+        $result = $this->statement->fetch();
+        if (!$result) {
+            abort();
+        }
+        return $result;
+    }
+
+    function fetchAll()
+    {
+        $result = $this->statement->fetchAll();
+        if (!$result) {
+            abort();
+        }
+        return $result;
     }
 }

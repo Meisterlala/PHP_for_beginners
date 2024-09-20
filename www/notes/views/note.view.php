@@ -6,13 +6,11 @@
 <div class="row">
     <div class="card mt-3 bg-body-secondary shadow">
         <div class="card-body p-4 fs-4 ">
-            <?= $note['body'] ?>
+            <?= htmlspecialchars($note['body']) ?>
         </div>
     </div>
 </div>
-<div class="d-flex justify-content-center">
-    <a href="/notes/" class="btn btn-primary mt-3 px-3">Go Back to Homepage</a>
-</div>
+
 
 
 

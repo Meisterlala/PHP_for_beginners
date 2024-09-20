@@ -4,6 +4,7 @@ $uri = parse_url($_SERVER['REQUEST_URI']);
 
 $routes = [
     '/notes/note' => 'controllers/note.php',
+    '/notes/create' => 'controllers/note-create.php',
 ];
 
 
