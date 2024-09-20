@@ -6,6 +6,6 @@ $config = require "config.php";
 require "Database.php";
 $db = new Database($config["DATABASE"]);
 
-
+$currentUserId = 3;
 
 require "router.php";
