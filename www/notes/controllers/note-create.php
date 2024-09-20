@@ -1,5 +1,7 @@
 <?php
 
+use Core\Response;
+use Core\Validator;
 
 $title = "Create new Note";
 

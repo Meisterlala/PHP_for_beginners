@@ -1,13 +1,20 @@
 <?php
-require "Response.php";
-require "Validator.php";
-require "functions.php";
+
+use Core\Database;
+
+spl_autoload_register(function ($class) {
+    // replace backslashes with forward slashes
+    $class = str_replace("\\", "/", $class);
+    require "{$class}.php";
+});
+
+require "Core/functions.php";
+
 
 $config = require "config.php";
 
-require "Database.php";
 $db = new Database($config["DATABASE"]);
 
 $currentUserId = 3;
 
-require "router.php";
+require "Core/router.php";

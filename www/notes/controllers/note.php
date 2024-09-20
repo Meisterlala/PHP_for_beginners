@@ -1,5 +1,8 @@
 <?php
 
+use Core\Response;
+use Core\Database;
+
 // require parameter
 if (!array_key_exists('id', $_GET)) {
     abort(Response::BAD_REQUEST);
@@ -16,6 +19,6 @@ $note = $db->query('SELECT * FROM notes WHERE id = :id', ...[
 
 
 // Note from another user
-authorize($note['user_id'] === $currentUserId);
+Core\authorize($note['user_id'] === $currentUserId);
 
 require "views/note.view.php";

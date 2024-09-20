@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+
 class Response
 {
     const BAD_REQUEST = 400;

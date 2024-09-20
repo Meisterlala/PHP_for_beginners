@@ -1,4 +1,8 @@
 <?php
+
+namespace Core;
+
+
 $uri = parse_url($_SERVER['REQUEST_URI']);
 
 
