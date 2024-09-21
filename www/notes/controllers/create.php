@@ -1,6 +1,7 @@
 <?php
 
 use Core\Response;
+use Core\Router;
 use Core\Validator;
 
 $title = "Create new Note";
@@ -10,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = [];
 
     if (!array_key_exists('body', $_POST)) {
-        abort(Response::BAD_REQUEST);
+        Router::abort(Response::BAD_REQUEST);
     }
 
 
@@ -32,4 +33,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require "views/note-create.view.php";
+require "views/create.view.php";

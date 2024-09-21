@@ -9,10 +9,10 @@ $page = $_SERVER['REQUEST_URI'];
 
     <ul class="nav nav-pills mx-4">
         <li class="nav-item">
-            <a href="/notes/" class="nav-link <?= $page === '/notes/' ? 'active' : '' ?>">Your Notes</a>
+            <a href="./#" class="nav-link <?= $page === '/notes/' ? 'active' : '' ?>">Your Notes</a>
         </li>
         <li class="nav-item">
-            <a href="/notes/create" class="nav-link <?= $page === '/notes/create' ? 'active' : '' ?>"">New Note</a>
+            <a href="./create" class="nav-link <?= $page === '/notes/create' ? 'active' : '' ?>"">New Note</a>
         </li>
     </ul>
 </header>

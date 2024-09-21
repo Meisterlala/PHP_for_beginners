@@ -2,10 +2,11 @@
 
 use Core\Response;
 use Core\Database;
+use Core\Router;
 
 // require parameter
 if (!array_key_exists('id', $_GET)) {
-    Core\abort(Response::BAD_REQUEST);
+    Router::abort(Response::BAD_REQUEST);
 }
 
 // Fetch and check that it exists
