@@ -5,13 +5,13 @@ use Core\Database;
 use Core\Router;
 
 // require parameter
-if (!array_key_exists('id', $_GET)) {
+if (!array_key_exists('id', $_POST)) {
     Router::abort(Response::BAD_REQUEST);
 }
 
 // Fetch and check that it exists
 $note = $db->query('SELECT * FROM notes WHERE id = :id', ...[
-    'id' => $_GET['id'],
+    'id' => $_POST['id'],
 ])->fetch();
 
 
@@ -19,6 +19,9 @@ $note = $db->query('SELECT * FROM notes WHERE id = :id', ...[
 Core\authorize($note['user_id'] === $currentUserId);
 
 
-// Fetch note
-$title = "Note: {$_GET['id']}";
-require "views/note.view.php";
+$db->query('DELETE FROM notes WHERE id = :id', ...[
+    'id' => $_POST['id'],
+]);
+header("Location: /notes");
+die();
+
