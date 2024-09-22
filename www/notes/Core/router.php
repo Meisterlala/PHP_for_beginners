@@ -17,7 +17,6 @@ class Router
                 return require $route['controller'];
             }
         }
-        highlight_string("<?php\n" . var_export([$this->routes, $uri, $method], true) . "\n?>");
         Router::abort(Response::NOT_FOUND);
     }
 
