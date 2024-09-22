@@ -3,10 +3,13 @@
 use Core\Response;
 use Core\Router;
 use Core\Validator;
+use Core\App;
+
 
 $title = "Create new Note";
+$currentUserId = 3;
 
-
+$db = App::resolve('Core\Database');
 $errors = [];
 
 if (!array_key_exists('body', $_POST)) {

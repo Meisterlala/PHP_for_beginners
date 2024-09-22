@@ -3,6 +3,11 @@
 use Core\Response;
 use Core\Database;
 use Core\Router;
+use Core\App;
+
+
+$db = App::resolve('Core\Database');
+$currentUserId = 3;
 
 // require parameter
 if (!array_key_exists('id', $_GET)) {

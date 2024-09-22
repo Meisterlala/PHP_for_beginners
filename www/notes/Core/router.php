@@ -13,7 +13,7 @@ class Router
                 Router::BASE_URI . $route['uri'] === $uri &&
                 $route['method'] === strtoupper($method)
             ) {
-                return $route['controller'];
+                return require $route['controller'];
             }
         }
         Router::abort(Response::NOT_FOUND);
