@@ -10,7 +10,7 @@ spl_autoload_register(function ($class) {
 
 require "Core/functions.php";
 require "bootstrap.php";
-
+require "Core/Router.php";
 
 
 $router = new Core\Router();
