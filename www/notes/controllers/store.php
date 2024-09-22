@@ -6,7 +6,6 @@ use Core\Validator;
 use Core\App;
 
 
-$title = "Create new Note";
 $currentUserId = 3;
 
 $db = App::resolve('Core\Database');
@@ -23,7 +22,14 @@ if (!Validator::String($_POST['body'], 1, 1000)) {
 
 // Validation error
 if (!empty($errors)) {
-    require "views/create.view.php";
+    render(
+        'create',
+        [
+            'errors' => $errors,
+            'body' => $_POST['body'],
+            'title' => "Create new Note"
+        ]
+    );
     die();
 }
 

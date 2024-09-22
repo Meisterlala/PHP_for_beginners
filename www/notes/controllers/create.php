@@ -1,5 +1,10 @@
 <?php
 
-$title = "Create new Note";
 
-require "views/create.view.php";
+
+render(
+    'create',
+    [
+        'title' => "Create new Note"
+    ]
+);

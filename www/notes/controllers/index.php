@@ -1,12 +1,16 @@
 <?php
 use Core\App;
 
-$title = "Notes";
 
 $db = App::resolve('Core\Database');
 $currentUserId = 3;
 
-$notes = $db->query("SELECT * FROM notes WHERE user_id = ?", $currentUserId)->fetchAll();
+$notes = $db->query("SELECT * FROM notes WHERE user_id = ? ORDER BY id", $currentUserId)->fetchAll();
 $user = $db->query("SELECT name FROM users WHERE id = ?", $currentUserId)->fetch();
 
-require "views/index.view.php";
+
+render('index', [
+    'notes' => $notes,
+    'user' => $user,
+    'title' => "Notes"
+]);

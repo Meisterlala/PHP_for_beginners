@@ -1,4 +1,3 @@
-
 <?php
 
 use Core\Response;
@@ -22,9 +21,12 @@ $note = $db->query('SELECT * FROM notes WHERE id = :id', ...[
 
 
 // Note from another user
-Core\authorize($note['user_id'] === $currentUserId);
+authorize($note['user_id'] === $currentUserId);
 
 
 // Fetch note
-$title = "Note: {$_GET['id']}";
-require "views/edit.view.php";
+render('edit', [
+    'title' => "Note: {$_GET['id']}",
+    'body' => $note['body'],
+    'id' => $note['id']
+]);

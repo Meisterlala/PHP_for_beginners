@@ -1,5 +1,6 @@
 <?php
 namespace Core;
+use Core\Response;
 
 class Router
 {
@@ -8,7 +9,7 @@ class Router
 
     public function route($uri, $method)
     {
-          foreach ($this->routes as $route) {
+        foreach ($this->routes as $route) {
             if (
                 Router::BASE_URI . $route['uri'] === $uri &&
                 $route['method'] === strtoupper($method)
@@ -16,6 +17,7 @@ class Router
                 return require $route['controller'];
             }
         }
+        highlight_string("<?php\n" . var_export([$this->routes, $uri, $method], true) . "\n?>");
         Router::abort(Response::NOT_FOUND);
     }
 

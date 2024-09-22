@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+use Core\Response;
 
 function dd(mixed $var): void
 {
@@ -12,4 +12,9 @@ function authorize(bool $condition, $statusCode = Response::FORBIDDEN): void
     if (!$condition) {
         abort($statusCode);
     }
+}
+
+function render($view, $data = []): void{
+    extract($data);
+    require "views/{$view}.view.php";
 }

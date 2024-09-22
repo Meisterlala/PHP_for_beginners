@@ -20,7 +20,7 @@ $note = $db->query('SELECT * FROM notes WHERE id = :id', ...[
 
 
 // Note from another user
-Core\authorize($note['user_id'] === $currentUserId);
+authorize($note['user_id'] === $currentUserId);
 
 
 $db->query('DELETE FROM notes WHERE id = :id', ...[
